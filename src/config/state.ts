@@ -20,6 +20,7 @@ const TINTED_DEFAULT_PRESET = getAccentPresetsForBase('baseThemeTinted')[0];
 
 const STATE_VERSION = App.version;
 const BUILD = App.build;
+const DEFAULT_AUTH_STATE = import.meta.env.VITE_TELESRV_DC_HOST || IS_MOBILE ? 'authStateSignIn' : 'authStateSignQr';
 
 // ! DEPRECATED
 export type Background = {
@@ -564,7 +565,7 @@ export const STATE_INIT: State = {
   version: STATE_VERSION,
   build: BUILD,
   authState: {
-    _: IS_MOBILE ? 'authStateSignIn' : 'authStateSignQr'
+    _: DEFAULT_AUTH_STATE
   },
   hiddenPinnedMessages: {},
   hideChatJoinRequests: {},

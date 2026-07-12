@@ -31,6 +31,18 @@ const TEST_SUFFIX = Modes.test ? '_test' : '';
 const PREMIUM_SUFFIX = '_premium';
 const RETRY_TIMEOUT_CLIENT = 3000;
 const RETRY_TIMEOUT_DOWNLOAD = 3000;
+const TELESRV_DC_HOST = import.meta.env.VITE_TELESRV_DC_HOST;
+const TELESRV_DC_PORT = import.meta.env.VITE_TELESRV_DC_PORT;
+const TELESRV_WS_PATH = import.meta.env.VITE_TELESRV_WS_PATH || '/apiws';
+
+function isUsingTelesrvDc() {
+  return !!(TELESRV_DC_HOST && TELESRV_DC_PORT);
+}
+
+function constructTelesrvWebSocketUrl() {
+  const path = TELESRV_WS_PATH.startsWith('/') ? TELESRV_WS_PATH : '/' + TELESRV_WS_PATH;
+  return `ws://${TELESRV_DC_HOST}:${TELESRV_DC_PORT}${path}`;
+}
 
 export function getTelegramConnectionSuffix(connectionType: ConnectionType) {
   return connectionType === 'client' ? '' : '-1';
@@ -39,6 +51,10 @@ export function getTelegramConnectionSuffix(connectionType: ConnectionType) {
 export function constructTelegramWebSocketUrl(dcId: DcId, connectionType: ConnectionType, premium?: boolean) {
   if(!import.meta.env.VITE_MTPROTO_HAS_WS) {
     return;
+  }
+
+  if(isUsingTelesrvDc()) {
+    return constructTelesrvWebSocketUrl();
   }
 
   const suffix = getTelegramConnectionSuffix(connectionType);
@@ -88,6 +104,10 @@ export class DcConfigurator {
   };
 
   private transportHTTP = (dcId: DcId, connectionType: ConnectionType, premium?: boolean) => {
+    if(isUsingTelesrvDc()) {
+      return;
+    }
+
     if(!import.meta.env.VITE_MTPROTO_HAS_HTTP) {
       return;
     }
@@ -118,6 +138,10 @@ export class DcConfigurator {
     reuse = true,
     premium?: boolean
   ) {
+    if(isUsingTelesrvDc()) {
+      transportType = 'websocket';
+    }
+
     /* if(transportType === 'websocket' && !Modes.multipleConnections) {
       connectionType = 'client';
     } */

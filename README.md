@@ -1,6 +1,8 @@
 ## Telegram Web K
 Based on Webogram, patched and improved. Available for everyone here: https://web.telegram.org/k/
 
+This fork adds an opt-in local DC configuration for telesrv. Copy `.env.local.example` to `.env.local`, adjust the DC host and port when needed, then build or start the client normally. The upstream project remains [morethanwords/tweb](https://github.com/morethanwords/tweb).
+
 
 ### Developing
 Install dependencies with:
