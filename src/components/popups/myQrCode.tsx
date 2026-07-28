@@ -112,8 +112,8 @@ function createSharedState(self: User.user, peerId: PeerId = rootScope.myId, ove
     const tokenUrl = contactTokenUrl();
     if(tokenUrl) return tokenUrl;
     if(username()) return buildTelegramUserQrUrl(username());
-    if(peerId.isUser()) return `https://t.me/+${(self as User.user).phone ?? ''}`;
-    return `https://t.me/c/${peerId.toChatId()}`;
+    if(peerId.isUser()) return `https://telesrv.net/+${(self as User.user).phone ?? ''}`;
+    return `https://telesrv.net/c/${peerId.toChatId()}`;
   });
 
   // The fallback brightness must stay reactive to a GLOBAL theme change while the

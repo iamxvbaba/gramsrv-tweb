@@ -1813,7 +1813,7 @@ const Stories = (props: {
   );
 
   const copyLink = () => {
-    copyTextToClipboard(`https://t.me/${getPeerActiveUsernames(peer)[0]}/s/${currentStory().id}`);
+    copyTextToClipboard(`https://telesrv.net/${getPeerActiveUsernames(peer)[0]}/s/${currentStory().id}`);
     toastNew({
       langPackKey: 'LinkCopied'
     });

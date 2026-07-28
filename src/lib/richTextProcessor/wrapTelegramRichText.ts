@@ -109,7 +109,7 @@ function processRichText(richText: RichText, options: Options): TextWithEntities
         offset,
         length,
         url: richText.webpage_id ?
-          'tg://iv?url=' + encodeURIComponent(richText.url) :
+          'telesrv://iv?url=' + encodeURIComponent(richText.url) :
           richText.url,
         safe: !!richText.webpage_id
       }), options);

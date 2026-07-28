@@ -15,8 +15,8 @@ export function getRtmpShareUrl(peerId: PeerId) {
 
   if(chat.username || chat.usernames?.length) {
     const username = chat.username || chat.usernames[0];
-    return `https://t.me/${username}?livestream`;
+    return `https://telesrv.net/${username}?livestream`;
   }
 
-  return `https://t.me/c/${chat.id}?livestream`;
+  return `https://telesrv.net/c/${chat.id}?livestream`;
 }

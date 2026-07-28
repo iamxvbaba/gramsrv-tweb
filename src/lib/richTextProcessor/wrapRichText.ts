@@ -163,8 +163,8 @@ export default function wrapRichText(text: string, options: WrapRichTextOptions 
   const entities = options.entities ??= parseEntities(nasty.text);
 
   const passEntities = options.passEntities ??= {};
-  const contextSite = options.contextSite ??= 'Telegram';
-  const contextExternal = contextSite !== 'Telegram';
+  const contextSite = options.contextSite ??= 'Telesrv';
+  const contextExternal = contextSite !== 'Telesrv';
 
   const textLength = nasty.text.length;
   const length = entities.length;
@@ -388,7 +388,7 @@ export default function wrapRichText(text: string, options: WrapRichTextOptions 
           }
 
           element = document.createElement('a');
-          (element as HTMLAnchorElement).href = encodeEntities('tg://bot_command?command=' + encodeURIComponent(command) + (bot ? '&bot=' + encodeURIComponent(bot) : ''));
+          (element as HTMLAnchorElement).href = encodeEntities('telesrv://bot_command?command=' + encodeURIComponent(command) + (bot ? '&bot=' + encodeURIComponent(bot) : ''));
           if(!contextExternal) {
             element.setAttribute('onclick', 'execBotCommand(this)');
           }
@@ -657,7 +657,7 @@ export default function wrapRichText(text: string, options: WrapRichTextOptions 
         if(!options.noLinks) {
           const username = fullEntityText.slice(1);
 
-          element = wrapTelegramUrlToAnchor('t.me/' + username);
+          element = wrapTelegramUrlToAnchor('telesrv.net/' + username);
           element.className = 'mention';
 
           // insertPart(entity, `<a class="mention" href="${contextUrl.replace('{1}', encodeURIComponent(username))}"${contextExternal ? ' target="_blank" rel="noopener noreferrer"' : ''}>`, '</a>');

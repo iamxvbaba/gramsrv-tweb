@@ -51,7 +51,7 @@ export default class PopupGiftLink extends PopupElement {
     const titleLangKey: LangPackKey = isUsed ? 'BoostingUsedGiftLink' : 'BoostingGiftLink';
     this.title.replaceChildren(i18n(titleLangKey));
 
-    const url = this.isInChat && !isUsed ? '' : 'https://t.me/giftcode/' + this.slug;
+    const url = this.isInChat && !isUsed ? '' : 'https://telesrv.net/giftcode/' + this.slug;
 
     const inviteLink = new InviteLink({
       button: false,
@@ -236,7 +236,7 @@ export default class PopupGiftLink extends PopupElement {
             anchorCallback(() => {
               simulateClickEvent(button.element);
               popup.hide();
-              this.shareGiftLink('https://t.me/giftcode/' + slug);
+              this.shareGiftLink('https://telesrv.net/giftcode/' + slug);
             })
           ],
           button: button = {

@@ -269,7 +269,7 @@ export default function showStickersPopup(
         icon: 'copy',
         text: 'CopyLink',
         onClick: () => {
-          const prefix = `https://t.me/${isEmojis ? 'addemoji' : 'addstickers'}/`;
+          const prefix = `https://telesrv.net/${isEmojis ? 'addemoji' : 'addstickers'}/`;
           const text = rawSets.map((set) => prefix + set.set.short_name).join('\n');
           copyTextToClipboard(text);
         }

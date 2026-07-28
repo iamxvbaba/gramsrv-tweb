@@ -49,7 +49,7 @@ export default function wrapJoinVoiceChatAnchor(message: Message.messageService)
   }
 
   const {onclick, url} = wrapUrl(
-    `tg://voicechat?chat_id=${message.peerId.toChatId()}&id=${call.id}&access_hash=${call.access_hash}`
+    `telesrv://voicechat?chat_id=${message.peerId.toChatId()}&id=${call.id}&access_hash=${call.access_hash}`
   );
   if(!onclick) {
     return document.createElement('span');

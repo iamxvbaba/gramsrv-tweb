@@ -299,7 +299,7 @@ const useShareTone = ({tone}: UseShareToneArgs) => {
 
         if(preparedPaymentResult === PaidMessagesInterceptor.PaymentRejectedSymbol) throw new Error();
 
-        const link = 'https://t.me/addstyle/' + tone.slug;
+        const link = 'https://telesrv.net/addstyle/' + tone.slug;
         rootScope.managers.appMessagesManager.sendText({
           peerId: peer.peerId,
           threadId: peer.threadId,

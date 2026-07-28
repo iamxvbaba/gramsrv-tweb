@@ -61,6 +61,7 @@ import useHasFoldersSidebar, {useIsSidebarCollapsed} from '@stores/foldersSideba
 import appNavigationController from '@components/appNavigationController';
 import {preventCrossTabDynamicImportDeadlock} from '@helpers/preventDeadlock';
 import appChatBackground from '@components/chat/bubbles/chatBackground';
+import {TELESRV_PUBLIC_HOST, TELESRV_WEB_A_URL} from '@config/brand';
 
 // import commonStateStorage from '@lib/commonStateStorage';
 // import { STATE_INIT } from '@config/state';
@@ -95,7 +96,7 @@ function randomlyChooseVersionFromSearch() {
       const version = localStorage.getItem('kz_version');
       if(version === 'Z' || nextRandomUint(8) > 127) {
         localStorage.setItem('kz_version', 'Z');
-        appNavigationController.navigateToUrl('https://web.telegram.org/a/');
+        appNavigationController.navigateToUrl(TELESRV_WEB_A_URL);
       } else {
         localStorage.setItem('kz_version', 'K');
       }
@@ -108,7 +109,7 @@ async function checkLastActiveAccountFromTMe() {
     if(
       App.isMainDomain &&
       document.referrer &&
-      /^(t|telegram)\.me/i.test(new URL(document.referrer).host)
+      new URL(document.referrer).host === TELESRV_PUBLIC_HOST
     ) {
       const [totalAccounts, {accountNumber}] = await Promise.all([
         AccountController.getUnencryptedTotalAccounts(),

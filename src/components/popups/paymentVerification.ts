@@ -38,7 +38,7 @@ export default class PopupPaymentVerification extends PopupElement<{
       this.dispatchEvent('finish');
       this.hide();
       if(this.openPathAfter) {
-        appImManager.openUrl('https://t.me' + e.path_full);
+        appImManager.openUrl('https://telesrv.net' + e.path_full);
       }
     });
 

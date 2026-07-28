@@ -20,7 +20,7 @@ type StorageValues = {
   server_time_offset: number,
   xt_instance: AppInstance,
   kz_version: 'K' | 'Z',
-  tgme_sync: {
+  telesrv_sync: {
     canRedirect: boolean,
     ts: number
   },

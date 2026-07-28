@@ -205,7 +205,7 @@ export default class PromoSlideTab {
         if(gift._ === 'messageActionGiftPremium') {
           description = i18n('TelegramPremiumUserGiftedPremiumDialogSubtitle');
         } else {
-          const url = 'https://t.me/giftcode/' + gift.slug;
+          const url = 'https://telesrv.net/giftcode/' + gift.slug;
 
           const inviteLink = new InviteLink({
             button: false,

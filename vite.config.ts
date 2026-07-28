@@ -34,10 +34,10 @@ if(isDEV) {
 
 const handlebarsPlugin = handlebars({
   context: {
-    title: 'Telegram Web',
-    description: 'Telegram is a cloud-based mobile and desktop messaging app with a focus on security and speed.',
-    url: 'https://web.telegram.org/k/',
-    origin: 'https://web.telegram.org/'
+    title: 'Telesrv Web K',
+    description: 'A private, self-hosted messaging client for telesrv.',
+    url: 'https://webk.telesrv.net/',
+    origin: 'https://webk.telesrv.net/'
   }
 });
 
@@ -46,11 +46,11 @@ const USE_SIGNED_CERTS = USE_SSL && true;
 const USE_SELF_SIGNED_CERTS = USE_SSL && false;
 
 // * mkdir certs; cd certs
-// * mkcert web.telegram.org
-// * chmod 644 web.telegram.org-key.pem
+// * mkcert web.telesrv.net
+// * chmod 644 web.telesrv.net-key.pem
 // * nano /etc/hosts
-// * 127.0.0.1 web.telegram.org
-const host = USE_SSL ? 'web.telegram.org' : 'localhost';
+// * 127.0.0.1 web.telesrv.net
+const host = USE_SSL ? 'web.telesrv.net' : 'localhost';
 
 // HTTP/2 for `pnpm start`. Vite serves dev modules unbundled — one request per module —
 // and over http/1.1 the browser's ~6-connections-per-origin cap serialises the hundreds

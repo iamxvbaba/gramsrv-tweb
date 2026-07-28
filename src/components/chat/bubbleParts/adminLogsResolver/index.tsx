@@ -301,7 +301,7 @@ const adminLogsMap: { [Key in ChannelAdminLogEventAction['_']]: MapCallback<Key>
       Content: () => {
         const anchor = (() => {
           if(!action.new_value) return;
-          const link = `t.me/${action.new_value}`;
+          const link = `telesrv.net/${action.new_value}`;
           const anchor = wrapTelegramUrlToAnchor(link);
           anchor.textContent = link;
           return anchor;
@@ -324,7 +324,7 @@ const adminLogsMap: { [Key in ChannelAdminLogEventAction['_']]: MapCallback<Key>
                 <Reply
                   colorPeerId={peerId}
                   title={i18n('AdminRecentActions.PreviousLink')}
-                  text={`https://t.me/${action.prev_value}`}
+                  text={`https://telesrv.net/${action.prev_value}`}
                 />
               </Show>
             </MinimalBubbleMessageContent>
@@ -338,10 +338,10 @@ const adminLogsMap: { [Key in ChannelAdminLogEventAction['_']]: MapCallback<Key>
           const previousLabel = I18n.format('AdminRecentActions.PreviousLink', true);
           const lines = [`${I18n.format(key, true, [peerTitle])} [${dateText}]`];
           if(action.new_value) {
-            lines.push(`https://t.me/${action.new_value}`);
+            lines.push(`https://telesrv.net/${action.new_value}`);
           }
           if(action.prev_value) {
-            lines.push(`${previousLabel}: https://t.me/${action.prev_value}`);
+            lines.push(`${previousLabel}: https://telesrv.net/${action.prev_value}`);
           }
           return lines;
         }

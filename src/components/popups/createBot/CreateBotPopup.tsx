@@ -238,7 +238,7 @@ const CreateBotPopup = (props: CreateBotPopupProps) => {
               key="CreateBot.Link"
               args={[
                 <span class={styles.linkInfoLink}>
-                  t.me/{fullUsername()}
+                  telesrv.net/{fullUsername()}
                 </span>
               ]}
             />

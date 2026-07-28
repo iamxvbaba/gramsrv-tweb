@@ -1022,7 +1022,7 @@ export default class WebApp {
         })
       },
       web_app_open_tg_link: ({path_full}) => {
-        appImManager.openUrl('https://t.me' + path_full);
+        appImManager.openUrl('https://telesrv.net' + path_full);
         // this.forceHide();
       },
       web_app_open_invoice: ({slug}) => {

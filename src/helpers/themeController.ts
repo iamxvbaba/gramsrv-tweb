@@ -107,14 +107,14 @@ const colorMap: {
   }
 } = {
   day: {
-    'primary-color': '#3390ec',
+    'primary-color': '#6558E8',
     'message-out-primary-color': '#5CA853',
     'message-background-color': '#ffffff',
     'surface-color': '#ffffff',
     'danger-color': '#df3f40',
     'primary-text-color': '#000000',
     'secondary-text-color': '#707579',
-    'saved-color': '#359AD4',
+    'saved-color': '#6558E8',
     'green-color': '#70b768',
     // SCSS-side defaults migrated from base.scss :root
     'background-color': '#f4f4f5',
@@ -125,21 +125,21 @@ const colorMap: {
     'input-search-background-color': '#ffffff'
   },
   night: {
-    'primary-color': '#8774E1',
-    'message-out-primary-color': '#8774E1',
+    'primary-color': '#8B7CF4',
+    'message-out-primary-color': '#8B7CF4',
     'message-background-color': '#212121',
     'surface-color': '#212121',
     'danger-color': '#ff595a',
     'primary-text-color': '#ffffff',
     'secondary-text-color': '#aaaaaa',
-    'saved-color': '#8774E1',
+    'saved-color': '#8B7CF4',
     'green-color': '#5CC85E',
     // SCSS-side defaults migrated from base.scss .night
     'background-color': '#181818',
     'body-background-color': '#181818',
     'border-color': '#0f0f0f',
     'secondary-color': '#707579',
-    'link-color': '#8774E1', // SCSS resolves to var(--primary-color)
+    'link-color': '#8B7CF4', // SCSS resolves to var(--primary-color)
     'input-search-background-color': '#181818'
   },
   tinted: {

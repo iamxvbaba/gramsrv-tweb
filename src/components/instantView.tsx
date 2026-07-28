@@ -419,7 +419,7 @@ async function onMediaClick({
         offset: string.length,
         length: url.length,
         url: webPageId ?
-          'tg://iv?url=' + encodeURIComponent(url) :
+          'telesrv://iv?url=' + encodeURIComponent(url) :
           url,
         safe: !!webPageId
       });
@@ -787,7 +787,7 @@ function Block(props: {
             <RichTextRenderer text={block.title} />
           </div>
           <For each={block.articles}>{(article, idx) => {
-            const wrapped = wrapUrl('tg://iv?url=' + encodeURIComponent(article.url));
+            const wrapped = wrapUrl('telesrv://iv?url=' + encodeURIComponent(article.url));
             const photo = article.photo_id ?
               unwrap(useContext(InstantViewContext).page.photos.find((photo) => photo.id === article.photo_id)) :
               undefined;
@@ -1162,7 +1162,7 @@ function RichTextRenderer(props: {text: RichText}) {
 
   // console.log({text, entities}, unwrap(props.text));
   const fragment = wrapRichText(text, {entities, customEmojiRenderer});
-  fragment.querySelectorAll('[onclick="tg_iv(this)"]').forEach((el) => {
+  fragment.querySelectorAll('[onclick="telesrv_iv(this)"]').forEach((el) => {
     el.classList.add(styles.Anchor);
   });
   // In-page fragment links (`#x`) get wrapped by wrapUrl into `https://#x` and flagged as

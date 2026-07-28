@@ -62,7 +62,7 @@ function StarGiftGridItem(props: {
           verify: () => raw._ === 'starGiftUnique',
           onClick: () => {
             showSharingPicker2Popup().then(({peerId, threadId, monoforumThreadId}) => {
-              rootScope.managers.appMessagesManager.sendText({peerId, threadId, replyToMonoforumPeerId: monoforumThreadId, text: 'https://t.me/nft/' + (raw as StarGift.starGiftUnique).slug});
+              rootScope.managers.appMessagesManager.sendText({peerId, threadId, replyToMonoforumPeerId: monoforumThreadId, text: 'https://telesrv.net/nft/' + (raw as StarGift.starGiftUnique).slug});
               appImManager.setInnerPeer({peerId, threadId, monoforumThreadId});
             });
           }
@@ -80,7 +80,7 @@ function StarGiftGridItem(props: {
           text: 'CopyLink',
           verify: () => raw._ === 'starGiftUnique',
           onClick: () => {
-            copyTextToClipboard('https://t.me/nft/' + (raw as StarGift.starGiftUnique).slug);
+            copyTextToClipboard('https://telesrv.net/nft/' + (raw as StarGift.starGiftUnique).slug);
             toastNew({langPackKey: 'LinkCopied'});
           }
         },

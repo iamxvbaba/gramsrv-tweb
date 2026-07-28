@@ -563,7 +563,7 @@ export default class PopupStarsPay extends PopupElement<{
 
         const channelId = this.peerId.toChatId()
         const serverMsgId = getServerMessageId(this.transaction.msg_id || this.transaction.giveaway_post_id)
-        return `https://t.me/c/${channelId}/${serverMsgId}`;
+        return `https://telesrv.net/c/${channelId}/${serverMsgId}`;
       })()
     ]);
     this.body.classList.toggle('is-receipt', this.isReceipt);

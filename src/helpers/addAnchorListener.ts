@@ -49,7 +49,7 @@ export default function addAnchorListener<
   }
 >(options: {
   name: InternalLinkAnchorType,
-  protocol?: 'tg',
+  protocol?: 'telesrv',
   callback: (params: Params & {element?: HTMLAnchorElement, masked?: boolean, event?: Event}) => any,
   noPathnameParams?: boolean,
   noUriParams?: boolean,
@@ -67,7 +67,7 @@ export default function addAnchorListener<
     let uriParams: any;
 
     const u = new URL(href);
-    const match = u.host.match(/(.+?)\.t(?:elegram)?\.me/);
+    const match = u.host.match(/(.+?)\.telesrv\.net/);
     if(match && !T_ME_PREFIXES.has(match[1])) {
       u.pathname = match[1] + (u.pathname === '/' ? '' : u.pathname);
       href = u.toString();

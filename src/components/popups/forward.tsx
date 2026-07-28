@@ -171,7 +171,7 @@ export default async function showForwardPopup(
     const mid = peerIdMids[fromPeerIdStr as any as number][0];
     const username = await rootScope.managers.appPeersManager.getPeerUsername(fromPeerId);
     const msgId = getServerMessageId(mid);
-    let url = 'https://t.me/';
+    let url = 'https://telesrv.net/';
     if(username) {
       url += username + '/' + msgId;
     } else {

@@ -9,7 +9,7 @@ type WrapTopicThreadAnchorArgs = {
 
 export default function wrapTopicThreadAnchor({peerId, threadId, lastMsgId}: WrapTopicThreadAnchorArgs) {
   return wrapTelegramUrlToAnchor(
-    't.me/c/' +
+    'telesrv.net/c/' +
     peerId.toChatId() +
     (threadId ? '/' + getServerMessageId(threadId) : '') +
     (lastMsgId ? '/' + getServerMessageId(lastMsgId) : '')

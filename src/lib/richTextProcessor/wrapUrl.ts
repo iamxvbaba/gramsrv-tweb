@@ -13,8 +13,8 @@ export default function wrapUrl(url: string, safe?: boolean) {
   let tgMeMatch, telescoPeMatch, tgMatch;
   let onclick: typeof out['onclick'];
   /* if(unsafe === 2) {
-    url = 'tg://unsafe_url?url=' + encodeURIComponent(url);
-  } else  */if((tgMeMatch = url.match(/^(?:https?:\/\/)?(?:(.+?)\.)?(?:(?:web|k|z|a)\.)?t(?:elegram)?\.me(?:\/(.+))?/))) {
+    url = 'telesrv://unsafe_url?url=' + encodeURIComponent(url);
+  } else  */if((tgMeMatch = url.match(/^(?:https?:\/\/)?(?:(.+?)\.)?telesrv\.net(?:\/(.+))?/))) {
     const u = new URL(url);
     let prefix = tgMeMatch[1];
     if(prefix && T_ME_PREFIXES.has(tgMeMatch[1])) {
@@ -30,7 +30,7 @@ export default function wrapUrl(url: string, safe?: boolean) {
 
     if(path[0] && path[0][0] === '$' && path[0].length > 1) {
       onclick = 'invoice';
-    } else if(/^\+/.test(fullPath) && !PHONE_NUMBER_REG_EXP.test(fullPath)) { // second regexp is for phone numbers (t.me/+38050...)
+    } else if(/^\+/.test(fullPath) && !PHONE_NUMBER_REG_EXP.test(fullPath)) { // second regexp is for phone numbers (telesrv.net/+38050...)
       onclick = 'joinchat';
     } else if(path[0]) switch(path[0]) {
       case 'm':
@@ -61,8 +61,8 @@ export default function wrapUrl(url: string, safe?: boolean) {
     }
   } else if((telescoPeMatch = url.match(/^(?:https?:\/\/)?telesco\.pe\/([^/?]+)\/(\d+)/))) {
     onclick = 'im';
-  } else if((tgMatch = url.match(/tg:(?:\/\/)?(.+?)(?:\?|$)/))) {
-    onclick = 'tg_' + tgMatch[1].split('/')[0] as any;
+  } else if((tgMatch = url.match(/telesrv:(?:\/\/)?(.+?)(?:\?|$)/))) {
+    onclick = 'telesrv_' + tgMatch[1].split('/')[0] as any;
 
     switch(tgMatch[1]) {
       // * local
@@ -80,7 +80,7 @@ export default function wrapUrl(url: string, safe?: boolean) {
       }
     }
   }/*  else if(!safe) {
-    url = 'tg://unsafe_url?url=' + encodeURIComponent(url);
+    url = 'telesrv://unsafe_url?url=' + encodeURIComponent(url);
   } */
 
   if(!(window as any)[onclick]) {

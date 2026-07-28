@@ -2,7 +2,7 @@ import pause from '@helpers/schedulers/pause';
 import textToSvgURL from '@helpers/textToSvgURL';
 
 /**
- * Builds a Telegram-styled QR canvas for `data` using the supplied palette.
+ * Builds a rounded QR canvas for `data` using the supplied palette.
  * Shared between the auth-flow `SignQRCard` and the in-app "My QR code" popup.
  *
  * The host element receives the canvas as its last child; existing children
@@ -20,7 +20,7 @@ export type PaintQrOptions = {
   background: string;
   /** Dot color — the "ink" of the QR code. */
   foreground: string;
-  /** Color used to tint the embedded Telegram logo. */
+  /** Color used to tint the embedded Telesrv mark. */
   logoColor: string;
   /**
    * Device-pixel multiplier for the rendered QR bitmap. Defaults to the screen
@@ -39,7 +39,7 @@ export type PaintQrOptions = {
   QRCodeStylingCtor: any;
 };
 
-// The Telegram logo SVG is identical for a given tint every paint; fetch +
+// The Telesrv mark SVG is identical for a given tint every paint; fetch +
 // recolor + data-URL it once per colour instead of on every QR regenerate.
 const logoUrlCache = new Map<string, Promise<string>>();
 function getLogoUrl(logoColor: string): Promise<string> {
@@ -95,10 +95,10 @@ export async function paintQrCode(options: PaintQrOptions) {
 }
 
 /**
- * Builds the public `t.me/<username>` link encoded in a user's QR code (the
+ * Builds the public `telesrv.net/<username>` link encoded in a user's QR code (the
  * "My QR code" popup). Kept beside `paintQrCode` so the QR callers share one
  * place for the link shape.
  */
 export function buildTelegramUserQrUrl(username: string) {
-  return `https://t.me/${username}`;
+  return `https://telesrv.net/${username}`;
 }

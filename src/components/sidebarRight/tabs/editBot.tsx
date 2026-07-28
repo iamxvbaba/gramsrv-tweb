@@ -75,7 +75,7 @@ const EditBot: Component = () => {
       const btnCommands = Button('btn-primary btn-transparent', {icon: 'botcom', text: 'EditBot.Buttons.Commands', asLink: true});
       const btnSettings = Button('btn-primary btn-transparent', {icon: 'bots', text: 'EditBot.Buttons.Settings', asLink: true});
 
-      const url = 't.me/botfather?start=' + getPeerEditableUsername(user);
+      const url = 'telesrv.net/botfather?start=' + getPeerEditableUsername(user);
       const arr: [HTMLAnchorElement, string][] = [
         [btnIntro, 'intro'],
         [btnCommands, 'commands'],

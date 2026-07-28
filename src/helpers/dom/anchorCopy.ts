@@ -4,7 +4,7 @@ import {copyTextToClipboard} from '@helpers/clipboard';
 import cancelEvent from '@helpers/dom/cancelEvent';
 import {attachClickEvent} from '@helpers/dom/clickEvent';
 
-const T_ME = 'https://t.me/';
+const T_ME = 'https://telesrv.net/';
 export default function anchorCopy(options: Partial<{
   // href: string,
   mePath: string,

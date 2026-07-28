@@ -20,7 +20,7 @@ export class TelegramMeWebManager {
       return;
     }
 
-    return sessionStorage.get('tgme_sync').then((curValue) => {
+    return sessionStorage.get('telesrv_sync').then((curValue) => {
       const ts = tsNow(true);
       if(
         canRedirect &&
@@ -31,7 +31,7 @@ export class TelegramMeWebManager {
       }
 
       sessionStorage.set({
-        tgme_sync: {
+        telesrv_sync: {
           canRedirect,
           ts
         }
@@ -39,8 +39,8 @@ export class TelegramMeWebManager {
 
       const path = `_websync_?authed=${canRedirect ? '1' : '0'}&version=${encodeURIComponent(App.version + ' ' + App.suffix)}`;
       const urls = [
-        '//telegram.me/' + path,
-        '//t.me/' + path
+        '//telesrv.net/' + path,
+        '//web.telesrv.net/' + path
       ];
 
       const promises = urls.map((url) => {

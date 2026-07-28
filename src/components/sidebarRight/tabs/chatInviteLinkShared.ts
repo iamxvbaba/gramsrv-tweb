@@ -54,7 +54,7 @@ export class ChatInviteLink extends InviteLink {
   public setChatInvite(chatInvite: ChatInvite | string) {
     const isUsername = typeof(chatInvite) === 'string';
     const username = typeof(chatInvite) === 'string' ? chatInvite : undefined;
-    this.setUrl(isUsername ? 't.me/' + username : chatInvite.link);
+    this.setUrl(isUsername ? 'telesrv.net/' + username : chatInvite.link);
 
     if(this.subtitle) {
       if(!isUsername && chatInvite?.usage) {

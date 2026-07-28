@@ -903,7 +903,7 @@ export default class PopupStarGiftInfo extends PopupElement {
 
     const handleShare = () => {
       showSharingPicker2Popup().then(({peerId, threadId, monoforumThreadId}) => {
-        rootScope.managers.appMessagesManager.sendText({peerId, threadId, replyToMonoforumPeerId: monoforumThreadId, text: 'https://t.me/nft/' + (gift as StarGift.starGiftUnique).slug});
+        rootScope.managers.appMessagesManager.sendText({peerId, threadId, replyToMonoforumPeerId: monoforumThreadId, text: 'https://telesrv.net/nft/' + (gift as StarGift.starGiftUnique).slug});
         appImManager.setInnerPeer({peerId, threadId, monoforumThreadId});
         this.hide();
       });
@@ -1060,7 +1060,7 @@ export default class PopupStarGiftInfo extends PopupElement {
                 icon: 'link',
                 text: 'CopyLink',
                 onClick: () => {
-                  copyTextToClipboard('https://t.me/nft/' + (gift as StarGift.starGiftUnique).slug);
+                  copyTextToClipboard('https://telesrv.net/nft/' + (gift as StarGift.starGiftUnique).slug);
                   toastNew({langPackKey: 'LinkCopied'});
                 }
               }

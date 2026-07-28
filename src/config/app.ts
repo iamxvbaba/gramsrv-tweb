@@ -7,8 +7,9 @@
 
 import type {TrueDcId} from '@types';
 import langPackLocalVersion from '@/langPackLocalVersion';
+import {TELESRV_WEB_DOMAINS} from '@config/brand';
 
-export const MAIN_DOMAINS = ['web.telegram.org', 'webk.telegram.org'];
+export const MAIN_DOMAINS = TELESRV_WEB_DOMAINS;
 export const DEFAULT_BACKGROUND_SLUG = 'pattern';
 
 const threads = Math.min(4, navigator.hardwareConcurrency ?? 4);
@@ -31,13 +32,7 @@ const App = {
   threads,
   lottieWorkers: threads,
   cryptoWorkers: threads,
-  interclientBroadcastChannel: 'tgweb'
+  interclientBroadcastChannel: 'telesrv-web'
 };
-
-if(App.isMainDomain) { // use Webogram credentials then
-  App.id = 2496;
-  App.hash = '8da85b0d5bfe62527e5b244c209159c3';
-  App.pushServerKey = 'BHEbKOXt-GD8MCTTYiAYT3I5R4MB0epIE7Tbbymj1uR0xJRE_7m27eXTVAC_P19TeZnO9413lRz-0oZ87JRPKPM';
-}
 
 export default App;
