@@ -11,6 +11,10 @@ const forcePort = process.argv[3];
 const useHttp = process.argv[4] !== 'https';
 
 const publicFolderName = thirdTour ? 'public3' : 'public';
+const distFolderName = 'dist';
+const entryFolderName = !thirdTour && fs.existsSync(`${__dirname}/${distFolderName}/index.html`) ?
+  distFolderName :
+  publicFolderName;
 const port = forcePort ? +forcePort : (thirdTour ? 8443 : 80);
 
 app.set('etag', false);
@@ -19,10 +23,13 @@ app.use((req, res, next) => {
   next();
 });
 app.use(compression());
-app.use(express.static(publicFolderName));
+app.use(express.static(entryFolderName));
+if(entryFolderName !== publicFolderName) {
+  app.use(express.static(publicFolderName));
+}
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + `/${publicFolderName}/index.html`);
+  res.sendFile(__dirname + `/${entryFolderName}/index.html`);
 });
 
 const server = useHttp ? http : https;
@@ -34,5 +41,12 @@ if(!useHttp) {
 }
 
 server.createServer(options, app).listen(port, () => {
-  console.log('Listening port:', port, 'folder:', publicFolderName);
+  console.log(
+    'Listening port:',
+    port,
+    'entry folder:',
+    entryFolderName,
+    'asset fallback:',
+    entryFolderName === publicFolderName ? 'none' : publicFolderName
+  );
 });
