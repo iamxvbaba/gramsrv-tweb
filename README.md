@@ -1,5 +1,25 @@
-## Telegram Web K
-Based on Webogram, patched and improved. Available for everyone here: https://web.telegram.org/k/
+## Telesrv Web K
+Based on Telegram Web K, patched and improved. Available for everyone here: https://webk.telesrv.net
+
+### Production deployment
+Create folder:
+```bash
+mkdir -p /opt/gramsrv-tweb
+cd /opt/gramsrv-tweb
+```
+
+Download the configuration files:
+```bash
+curl -o docker-compose.yaml https://raw.githubusercontent.com/iamxvbaba/gramsrv-tweb/dev/docker-compose.yaml
+curl -o .env https://raw.githubusercontent.com/iamxvbaba/gramsrv-tweb/dev/.env.example
+```
+
+Run the container and check logs:
+```bash
+docker compose up -d
+docker compose logs -f
+```
+Open http://localhost:80/ in your browser.
 
 
 ### Developing
@@ -9,28 +29,8 @@ pnpm install
 ```
 This will install all the needed dependencies.
 
-
-#### Running web-server
-Just run `pnpm start` to start the web server and the livereload task.
+Run `pnpm start` to start the web server.
 Open http://localhost:8080/ in your browser.
-
-
-#### Running in production
-
-Run `node build` to build the minimized production version of the app. Copy `public` folder contents to your web server.
-
-### Running in docker
-
-#### Developing: 
-* Install dependencies `docker-compose up tweb.dependencies`.
-* Run develop container `docker-compose up tweb.develop `.
-* Open http://localhost:8080/ in your browser. 
-
-#### Production:
-* Run `docker-compose up tweb.production -d` nginx image and container to serve the build
-* Open http://localhost:80/ in your browser.
-
-You can use `docker build -f ./.docker/Dockerfile_production -t {dockerhub-username}/{imageName}:{latest} .` to build your production ready image.
 
 ### Dependencies
 * [BigInteger.js](https://github.com/peterolson/BigInteger.js) ([Unlicense](https://github.com/peterolson/BigInteger.js/blob/master/LICENSE))
@@ -49,28 +49,5 @@ You can use `docker build -f ./.docker/Dockerfile_production -t {dockerhub-usern
 * [Mediabunny](https://github.com/Vanilagy/mediabunny) ([Mozilla Public License 2.0](https://github.com/Vanilagy/mediabunny/blob/main/LICENSE))
 * [Temml](https://github.com/ronkok/Temml) ([MIT License](https://github.com/ronkok/Temml/blob/main/LICENSE))
 
-### Debugging
-You are welcome in helping to minimize the impact of bugs. There are classes, binded to global context. Look through the code for certain one and just get it by its name in developer tools.
-Source maps are included in production build for your convenience.
-
-#### Additional query parameters
-* **test=1**: to use test DCs
-* **debug=1**: to enable additional logging
-* **noSharedWorker=1**: to disable Shared Worker, can be useful for debugging
-* **http=1**: to force the use of HTTPS transport when connecting to Telegram servers
-
-Should be applied like that: http://localhost:8080/?test=1
-
-#### Taking local storage snapshots
-You can also take and load snapshots of the local storage and indexed DB using the `./snapshot-server` [mini-app](/snapshot-server/README.md). Check the `README.md` under this folder for more details.
-
-#### Preview all icons
-You can see all the available svg icons by calling the `showIconLibrary()` global function in the browser's console.
-
-### Troubleshooting & Suggesting
-
-If you find an issue with this app or wish something to be added, let Telegram know using the [Suggestions Platform](https://bugs.telegram.org/c/4002).
-
 ### Licensing
-
 The source code is licensed under GPL v3. License is available [here](/LICENSE).
